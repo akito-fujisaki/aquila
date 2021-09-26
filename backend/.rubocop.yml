@@ -35,19 +35,15 @@ Layout/MultilineHashBraceLayout:
 Layout/MultilineMethodCallBraceLayout:
   EnforcedStyle: new_line
 
-# 松田技術顧問との会話で、現実的でないとの結論
 Metrics/MethodLength:
   Enabled: false
 
-# 松田技術顧問との会話で、現実的でないとの結論
 Metrics/ClassLength:
   Enabled: false
 
-# 松田技術顧問との会話で、現実的でないとの結論
 Metrics/ModuleLength:
   Enabled: false
 
-# 根拠のない決め打ち数字
 Metrics/AbcSize:
   Max: 30
 
@@ -56,14 +52,11 @@ Metrics/CyclomaticComplexity:
 
 Metrics/BlockLength:
   Exclude:
-    - 'lib/tasks/customer_delete_request_transfer.rake'
     - 'test/**/*'
 
-# _で始まる変数名は特に禁止していないため
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
-# eachの中でreturnなど各ケースがあると判断
 Lint/NonLocalExitFromIterator:
   Enabled: false
 
@@ -79,15 +72,12 @@ Rails/InverseOf:
 Rails/SkipsModelValidations:
   Enabled: false
 
-# ドキュメント用のコメントを付けないといけないというルールは無いため
 Style/Documentation:
   Enabled: false
 
-# #14 にて議論中
 Style/RedundantReturn:
   Enabled: false
 
-# 戻り値の有無で決めるスタイルにしているため
 Style/BlockDelimiters:
   Enabled: false
 
@@ -100,13 +90,11 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: false
 
-# &.(ぼっち演算子/lonely operator)は利用禁止のルールのため
 Style/SafeNavigation:
   Enabled: false
 
-Rails/Output:
-  Exclude:
-    - 'lib/first_client_synchronizing/client_customers_cleaner.rb'
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
 AllCops:
   NewCops: enable
@@ -114,7 +102,6 @@ AllCops:
     - 'vendor/**/*'
     - 'db/**/*'
     - 'bin/**/*'
-    - 'node_modules/**/*'
     - 'public/**/*'
     - 'tmp/**/*'
     - 'log/**/*'

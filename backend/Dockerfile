@@ -11,8 +11,9 @@ RUN apt-get update -qq && \
 RUN mkdir /app
 WORKDIR /app
 
-ADD Gemfile /app/Gemfile
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
 
 RUN bundle install
 
-ADD . /app
+ADD . .

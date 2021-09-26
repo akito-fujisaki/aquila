@@ -20,3 +20,6 @@ DB: postgresql
 ## 参考サイト
 - https://zenn.dev/hibriiiiidge/books/49ee4063b10cec1df1a2/viewer/2ac314f5633e674d4b0c
 - https://y-ohgi.com/introduction-terraform/
+
+## 備忘録
+### frontend環境構築
