@@ -1,9 +1,8 @@
 export default {
   server: {
     host: '0.0.0.0',
-    port: 3000
+    port: process.env.FRONTEND_PORT || '3000'
   },
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'frontend',
     htmlAttrs: {
@@ -19,27 +18,19 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    { src: '~/assets/scss/reset.scss', lang: 'scss' }
   ],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/axios'
   ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/vuetify',
+    '@nuxtjs/stylelint-module'
   ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios'
   ],
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {}
 }

@@ -12,10 +12,10 @@ services:
       - db_data:/var/lib/postgresql/data
 
   backend:
+    env_file: ./.env
     container_name: backend
     build: ./backend/
     image: backend
-    env_file: ./.env
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     tty: true
     stdin_open: true
@@ -23,23 +23,26 @@ services:
       - ./backend:/app
     environment:
       TZ: Asia/Tokyo
+      DATABASE_USER_NAME: postgres
+      DATABASE_PASSWORD: password
     depends_on:
       - db
     ports:
       - ${BACKEND_PORT:-5000}:3000
 
   frontend:
+    env_file: ./.env
     container_name: front
     build: ./frontend/
     image: frontend
+    command: yarn dev
+    tty: true
+    stdin_open: true
     volumes:
       - ./frontend:/app
       - /app/node_modules
     ports:
       - ${FRONTEND_PORT:-3000}:3000
-    command: yarn dev
-    tty: true
-    stdin_open: true
 
 volumes:
   db_data:
